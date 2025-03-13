@@ -9,6 +9,7 @@ const MessageInput = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const fileInputRef = useRef(null);
   const { sendMessage } = useChatStore();
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false); //emojiler metin kutusunda 
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -47,16 +48,10 @@ const MessageInput = () => {
       console.error("Failed to send message:", error);
     }
   };
-  const EmojiTextBox = () => {
-    const [inputValue, setInputValue] = useState("");
-    const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-  
-    const handleEmojiClick = (emojiObject) => {
-      setInputValue((prevValue) => prevValue + emojiObject.emoji);
-    };
+  const handleEmojiClick = (emojiObject) => {
+    setText((prevValue) => prevValue + emojiObject.emoji); // Emoji'yi metin kutusuna ekle
   };
   
-
   return (
     <div className="p-4 w-full">
       {imagePreview && (
