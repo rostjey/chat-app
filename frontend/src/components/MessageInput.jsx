@@ -97,7 +97,7 @@ const MessageInput = () => {
 
           {showEmojiPicker && (
             <EmojiPicker onEmojiClick={handleEmojiClick} />
-          )}
+          )} 
           <button
             type="button"
             className={`hidden sm:flex btn btn-circle
